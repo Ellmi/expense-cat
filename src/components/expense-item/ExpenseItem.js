@@ -1,15 +1,19 @@
-import Price from './Price';
 import Date from './Date';
 import './ExpenseItem.css';
 
-function ExpenseItem() {
+function ExpenseItem(props) {
   return (
     <div className="expense-item" data-testid="expense-item">
-      <Date />
-      <div className="expense-item__description" data-testid="expense-item__description">
-        <h2>House Issurance</h2>
+      <Date month={props.date.month} year={props.date.year} day={props.date.day}/>
+      <div
+        className="expense-item__description"
+        data-testid="expense-item__description"
+      >
+        <h2>{props.description} </h2>
       </div>
-      <Price />
+      <div className="expense-item__price" data-testid="expense-item__price">
+        {props.price}
+      </div>
     </div>
   );
 }

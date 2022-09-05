@@ -1,10 +1,12 @@
 import './Expenses.css';
 import ExpenseItem from '../expense-item/ExpenseItem';
 
-function Expenses() {
+function Expenses(props) {
   return (
     <div className="expenses" data-testid="expenses">
-      <ExpenseItem />
+      {props.data.map((item) => {
+        return (<ExpenseItem date={item.date} description={item.description} price={item.price} />);
+      })}
     </div>
   );
 }
