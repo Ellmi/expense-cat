@@ -16,17 +16,17 @@ test('renders expenses with two items', () => {
         month: 'dummy month one',
         year: 'dummy year one',
         day: 'dummy day one',
-      }
-    },
-      {
-        description: 'dummy value two',
-        price: 'dummy price two',
-        date: {
-          month: 'dummy month two',
-          year: 'dummy year two',
-          day: 'dummy day two',
-        },
       },
+    },
+    {
+      description: 'dummy value two',
+      price: 'dummy price two',
+      date: {
+        month: 'dummy month two',
+        year: 'dummy year two',
+        day: 'dummy day two',
+      },
+    },
   ];
   render(<Expenses data={dummyData} />);
 
