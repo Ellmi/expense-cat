@@ -38,7 +38,7 @@ function ExpenseForm(props) {
         </div>
         <div className="new-expense__control">
           <label htmlFor="date">Date</label>
-          <input id="date" className="date" type="date"></input>
+          <input id="date" className="date" type="date" min="2019-01-01"></input>
         </div>
       </div>
       <div className="new-expense__actions">
