@@ -7,14 +7,14 @@ test('renders expenses', () => {
   expect(expenseElement).toBeInTheDocument();
 });
 
-test('renders expenses with two items', () => {
+test('renders expenses with filtered items', () => {
   const dummyData = [
     {
       description: 'dummy value one',
       price: 'dummy price one',
       date: {
         month: 'dummy month one',
-        year: 'dummy year one',
+        year: '2022',
         day: 'dummy day one',
       },
     },
@@ -31,5 +31,26 @@ test('renders expenses with two items', () => {
   render(<Expenses data={dummyData} />);
 
   const expenseItemElements = screen.getAllByTestId('expense-item');
-  expect(expenseItemElements.length).toBe(2);
+  expect(expenseItemElements.length).toBe(1);
+});
+
+test('renders no expenses item found text', () => {
+  const dummyData = [
+    {
+      description: 'dummy value one',
+      price: 'dummy price one',
+      date: {
+        month: 'dummy month one',
+        year: '2021',
+        day: 'dummy day one',
+      },
+    },
+  ];
+  render(<Expenses data={dummyData} />);
+
+  const expenseItemElements = screen.queryAllByTestId('expense-item');
+  expect(expenseItemElements.length).toBe(0);
+
+  const noItemTextElement = screen.getByText('No expense item found');
+  expect(noItemTextElement).toBeInTheDocument();
 });

@@ -10,7 +10,7 @@ function App() {
       price: '700',
       date: {
         month: 'Decemeber',
-        year: 2022,
+        year: '2022',
         day: '01',
       },
     },
@@ -19,7 +19,7 @@ function App() {
       price: '3000',
       date: {
         month: 'Decemeber',
-        year: 2021,
+        year: '2021',
         day: '01',
       },
     },
@@ -28,7 +28,7 @@ function App() {
       price: '350',
       date: {
         month: 'Decemeber',
-        year: 2020,
+        year: '2020',
         day: '06',
       },
     },

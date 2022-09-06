@@ -21,7 +21,7 @@ test('submmit expense form should call onSubmit handler', () => {
   userEvent.type(dateElement, '2022-02-02');
   userEvent.click(submitButtonElement);
 
-  expect(mockOnSumit).lastCalledWith({
+  expect(mockOnSumit).toBeCalledWith({
     description: 'dummyTitle',
     price: '100',
     date: {
