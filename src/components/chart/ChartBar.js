@@ -3,7 +3,7 @@ import './ChartBar.css';
 function ChartBar(props) {
   return (
     <div>
-      <div className="chart-bar">
+      <div className="chart-bar" data-testid="chart-bar">
         <div className="chart-bar__inner">
           <div
             className="chart-bar__fill"

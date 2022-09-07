@@ -2,6 +2,7 @@ import './Expenses.css';
 import ExpenseItem from '../expenseItem/ExpenseItem';
 import ExpensesFilter from './ExpensesFilter';
 import { useState } from 'react';
+import Chart from '../chart/Chart';
 
 function Expenses(props) {
   console.log('The expenses be executed.');
@@ -33,6 +34,7 @@ function Expenses(props) {
   return (
     <div className="expenses" data-testid="expenses">
       <ExpensesFilter selectedYear={selectedYear} onSelect={selectYear} />
+      <Chart />
       {expensesItems}
     </div>
   );
