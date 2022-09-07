@@ -1,8 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Expenses from '../Expenses';
-import ChartContext from '../../chart/ChartContext';
-import { useContext } from 'react';
 
 test('renders expenses', () => {
   render(<Expenses data={[]} />);

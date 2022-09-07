@@ -9,7 +9,16 @@ function App() {
       description: 'House Issurance',
       price: '700',
       date: {
-        month: 'Decemeber',
+        month: 'May',
+        year: '2022',
+        day: '01',
+      },
+    },
+    {
+      description: 'Cat',
+      price: '100',
+      date: {
+        month: 'June',
         year: '2022',
         day: '01',
       },
