@@ -12,7 +12,7 @@ function Chart() {
         <ChartBar
           key={month}
           labelText={month}
-          rateInteger={monthsPercentage.month}
+          rateInteger={monthsPercentage[month]}
         />
       ))}
     </div>

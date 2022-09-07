@@ -1,5 +1,8 @@
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import Expenses from '../Expenses';
+import ChartContext from '../../chart/ChartContext';
+import { useContext } from 'react';
 
 test('renders expenses', () => {
   render(<Expenses data={[]} />);
@@ -53,4 +56,38 @@ test('renders no expenses item found text', () => {
 
   const noItemTextElement = screen.getByText('No expense item found');
   expect(noItemTextElement).toBeInTheDocument();
+});
+
+test('renders correct chart when select a certain year', () => {
+  const dummyData = [
+    {
+      description: 'House Issurance',
+      price: '100',
+      date: {
+        month: 'Decemeber',
+        year: '2021',
+        day: '01',
+      },
+    },
+    {
+      description: 'New Car',
+      price: '1000',
+      date: {
+        month: 'May',
+        year: '2021',
+        day: '01',
+      },
+    },
+  ];
+  render(<Expenses data={dummyData} />);
+
+  const filterElement = screen.getByLabelText('Filter by year');
+  const targetElement = screen.getByText('2021');
+  userEvent.selectOptions(filterElement, targetElement);
+
+  const chartBarElements = screen.queryAllByTestId('chart-bar__fill');
+
+  expect(chartBarElements[4]).toHaveStyle('height: 100%');
+  expect(chartBarElements[11]).toHaveStyle('height: 10%');
+  expect(chartBarElements[0]).toHaveStyle('height: 0%');
 });
